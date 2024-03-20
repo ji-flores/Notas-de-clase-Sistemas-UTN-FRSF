@@ -2,7 +2,7 @@
 
 ## Definiciones
 
-+ Solución factible: Vector $\hat{x}=[x_0,...,x_n]$ de valores que toman las variables de decisión, que cumplen con todas las restricciones del modelo.
++ Solución factible: Vector $\vec{x}=[x_0,...,x_n]$ de valores que toman las variables de decisión, que cumplen con todas las restricciones del modelo.
 + Solución no factible: Evaluación de las VD que no cumple con al menos una restricción.
 + Solución optima ($x^*$): Solución **factible** que a su vez maximiza o minimiza (dependiendo del objetivo) la función objetivo.
 + $f(x^*)$: Valor optimo de la función objetivo.
