@@ -8,4 +8,6 @@ Las normas juridicas también cambian segun la sociedad (el espacio) y el tiempo
 
 ¿Norma social = Norma ética? No. Ya se ahondará en las normas éticas.
 
-**Derecho subjetivo:** Capacidad de un individuo de exigirle a otro una determinada conducta
+**Derecho subjetivo:** Capacidad de un individuo de exigirle a otro una determinada conducta.
+
+Un pais soberano es un pais que puede dictar normas sin ninguna restricción. Un pais soberano todavía puede someterse a cortes internacionales, sin dejar de ser soberanos ya que la misma desición de dejarse juzgar por estos organismos es voluntaria. (Ej.: Inglaterra yendose de la UE)
