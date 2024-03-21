@@ -78,3 +78,5 @@ Es una combinación de 32 bits, agrupados en 4 octetos. Aquellos bits que la mas
 Nota: Si se hace una operación **AND** entre la Mascara de red y dirección IP, se recibe la dirección de red a la que pertenece esa dirección IP.
 
 (Más ejemplos en diapo.)
+
+`Pregunta: En classless, también se reservó toda la red clase A 0.0.0.0?`
