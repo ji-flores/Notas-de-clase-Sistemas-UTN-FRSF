@@ -105,7 +105,10 @@ Pertenecen a la misma red.
 + **d)** `10101100.10101000.00010111.00011111\27`. Los 5 bits de la host-id estan en uno: Es una dirección de broadcast dirigido.
 + **e)** `10101100.10101000.00010111.00000000\23`. Los bits de host-id son los 9 ultimos. Como estos no son ni todos ceros ni todos unos, la dirección corresponde a un host.
 
-## Ejercicio 4
+## Ejercicios 4 y 5
+
+*Hechos en carpeta, capaz puedo escanearlos e insertarlos*.
+
 ```
 Canciones de Armchair Boogie:
 + Jocko's Lament
