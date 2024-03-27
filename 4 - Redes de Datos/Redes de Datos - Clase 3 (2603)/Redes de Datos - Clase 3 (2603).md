@@ -6,22 +6,22 @@ Entrega de paquetes IPv4
 # Formato de un datagrama
 _**Datagrama**: Nombre especial que IPv4 le da a los paquetes_
 
-## Encabezado IP
+### Encabezado IP
 Indica la versión de IP que se esta utilizando.
 
-## Header length
+### Header length
 Al encabezado se le pueden agregar algunos campos opcionales, entonces este campo permite saber cual es la longitud del encabezado para poder procesarlo correctamente.
 
 Este tamaño de encabezado esta expresado en cantidad de palabras de 32 bits (4 bytes).
 
-## Total length
+### Total length
 Tamaño total (incluyendo encabezado y datos) del datagrama, medido (ahora si) en bytes (8 bits). Este campo tiene 16bits.
 
-## Header checksum
+### Header checksum
 
 Integridad del encabezado. No se checkean los datos ya que esto se considera problemas de las capas superiores, ademas cuando se recibe el paquete, este estuvo contenido en una trama que hizo ya un checkeo de errores sobre todo el payload.
 
-## Direcciones IP
+### Direcciones IP
 Direcciones IP del source y de destination, 32 bits cada una. No incluye las mascaras. Información sobre las mascaras la tiene el host que posee la IP.
 
 # Enviar un datagrama IP
