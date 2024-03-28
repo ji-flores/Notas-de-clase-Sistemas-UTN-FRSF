@@ -73,5 +73,4 @@ Si hubiese que establecer un enlace punto a punto entre Rosario y Santa Fe, debe
 + **Dirección de broadcast**: `181.91.135.19`
 + **Cantidad de direcciones disponibles en el rango elegido**: 2.
 + **Cantidad de direcciones utilizadas**: 2.
-+ **Mascara de red**: `255.255.255.252` o `\30`. 
-
++ **Mascara de red**: `255.255.255.252` o `/30`.
