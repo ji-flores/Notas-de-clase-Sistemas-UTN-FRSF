@@ -108,6 +108,8 @@ Otras entradas que pueden aparecer, son aquellas que uso cuando el mensaje es pa
 5. Si la tabla de reenvío contiene una ruta por defecto, reenviar el datagrama al próximo salto especificado en la ruta por defecto.
 6. Si ninguno de los casos anteriores permite el reenvío del datagrama (no existe ruta por omisión), declarar un error de reenvío.
 
+(cambiarlo a la versión coloquial)
+
 Pero el encabezado del datagrama no incluye la mascara para determinar el prefijo de red de $D$. Se usa la columna de mascara de cada fila, operando AND con la dirección de destino $D$, y si este resultado coincide con la columna Destino, se elige el proximo salto de esa fila.
 
 Ademas, para cada uno de estos "grupos" (mensajes para mi, host especifico, entrega directa, entrega indirecta...) el recorrido de las filas no es azaroso. Recorre:
@@ -137,3 +139,7 @@ Así se evitan bulces eternos, cada ruteador decrementa el contador en 1 y si el
 *(\*)* No cuenta para casos donde el datagrama es para el router, porque ahi _no hay reenvío_.
 
 El TTL no cuenta la cantidad maxima de saltos, cuenta la cantidad maxima de redes que atraviesa el datagrama.
+
+# Notas
++ Las rutas deben configurarse de ida y de vuelta.
++ Los bucles se dan cuando hay que hacer entrega indirecta.
