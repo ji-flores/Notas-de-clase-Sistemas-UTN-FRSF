@@ -1,14 +1,16 @@
-# Simulacion basada en Eventos Discretos
+# Simulación basada en Eventos Discretos
 
-## Definicion
-Parte de un modelo del sistema de interes que evoluciona en el tiempo, donde las variables cambian instantaneamente en puntos separados en el tiempo.
+## Definición
 
-En simulacion continua, las variables tambien cambian instantaneamente (sin retraso)
+Parte de un modelo del sistema de interés que evoluciona en el tiempo, donde las variables cambian instantáneamente en puntos separados en el tiempo.
+
+En simulación continua, las variables también cambian instantáneamente (sin retraso)
 
 En esos puntos ocurren **eventos**.
 
 ## Eventos
-Ocurrencia instantanea que puede cambiar el estado del sistema. El estado podra verse modficado o no ante la ocurrencia de un evento.
+
+Ocurrencia instantánea que puede cambiar el estado del sistema. El estado podrá verse modificado o no ante la ocurrencia de un evento (???).
 
 Dos (o mas) eventos pueden ocurrir en el mismo momento.
 
@@ -21,10 +23,13 @@ Proceso: Secuencia de eventos ordenada temporalmente.
 Una actividad es el conjunto de operaciones que cambian el estado de una entidad.
 
 # Mecanismos de avance de tiempo
+
 ## Orientada al intervalo
-Veo el tiempo como una continuidad donde avanza la simulacion, pero el avance de tiempo es fijo en intervalos regulares, y determina en cada intervalo si debe o no ocurrir un evento.
+
+Veo el tiempo como una continuidad donde avanza la simulación, pero el avance de tiempo es fijo en intervalos regulares, y determina en cada intervalo si debe o no ocurrir un evento.
 
 En cada paso, el reloj avanza $\Delta t$ unidades de tiempo, y:
+
 1. Se explora si en ese intervalo ocurrieron eventos.
 2. Si hay eventos, los ejecuta.
 3. Actualiza los estadisticos.
@@ -37,22 +42,22 @@ Pueden tener que hacerse muchos eventos en un momento dado.
 
 Se usa en simulación continua.
 
-
 ## Orientado al evento
+
 El tiempo de simulación avanza al tiempo necesario para alcanzar el proximo evento (evento más inminente EMI), cualquiera sea ese intervalo. Ante eventos simultaneos: Desempate.
 
-Los cambios de estado se realizan cada vez que se avanza el tiempo de simulación, ya que ha ocurrido un evento que afecta el estado del sistema. Esto requiere 
+Los cambios de estado se realizan cada vez que se avanza el tiempo de simulación, ya que ha ocurrido un evento que afecta el estado del sistema. Esto requiere (???)
 
 No podes saber cuando viene el proximo.
-
-
 
 ### Metodo del proximo evento
 
 # Componentes y organización
+
 Existen muchas maneras (formales incluso). Trabajaremos de una manera de alto nivel de abstracción.
 
 Se necesita
+
 - Estado del sistema
 - Reloj de simulacion: Simbolizado como t, variable que mantiene el valor actual del tiempo simulado.
 - Lista de eventos: Lista que contiene el proximo tiempo en el cual ocurrirá cada tipo de evento.
@@ -75,9 +80,11 @@ El fin de simulación puede darse por tiempo (se llego a un tiempo especifico) o
 Para construir el modelo de diseño, redefinimos el estado del sistema en función de entidades.
 
 ### Entidad
+
 Objeto de interes en el sistema para un determinado objetivo, el cual puede ser caracterizado segun los valores de sus atributos.
 
 ### Atributo
+
 Propiedad de una entidad que permite describir cuantitativamente el estado de la entidad en el sistema.
 
 Un conjunto de atributos define el estado de una entidad. Los estados de las entidades **mas importantes** definen el estado del sistema.
@@ -85,6 +92,7 @@ Un conjunto de atributos define el estado de una entidad. Los estados de las ent
 ## Componentes del MD
 
 ### Estado
+
 En base al **MC**, se toma cada componente (que se ha decidido *incluir*) como una **Entidad**.
 
 Para cada entidad se especifican atributos, actividades y eventos.
@@ -94,7 +102,8 @@ El "nivel de detalle" (con decisión de "incluir") para el componente del modelo
 Actividad: Operacion que produce transformaciones en los estados de un entidad. Comienzan y terminan con eventos. Durante una actividad, una entidad no puede responder a ningun evento.
 
 ### Rutina de evento
-Subprograma que actualiza el estado del sistema cuando un tipo particular de evento tiene lugar. Requiere clasificar los eventos segun sean condicionales: Depende de almenos algun estado o componente del sistema (requerimientos de ocurrencia), e incondicionales: Pueden ocurrir en cualquier momento independiente del estado del sistema (ocurrencia aleatoria).
+
+Subprograma que actualiza el estado del sistema cuando un tipo particular de evento tiene lugar. Requiere clasificar los eventos segun sean condicionales: Depende de al menos algun estado o componente del sistema (requerimientos de ocurrencia), e incondicionales: Pueden ocurrir en cualquier momento independiente del estado del sistema (ocurrencia aleatoria).
 
 Ej. de condicionales: Pista de aterrizaje esta disponible o no, cajero esta disponible o no, cola de servicios esta vacia o no.
 
@@ -102,10 +111,10 @@ Ej de incondicionales: Arribo de un cliente a un banco, partida de un cliente de
 
 Usamos programación temporal de eventos.
 
-#### Programación temporal de eventos
+### Programación temporal de eventos
 
 Enfoque de manejo del tiempo que brinda una descripción completa de los cambios de estado que se producen en el sistema cuando ocurre un evento incondicional. Se especifican mediante diagramas de flujo. Deben especificar claramente que cambios se dan en los atributos de entidades.
 
 Solo se arman las rutinas de los eventos incondicionales porque las rutinas de los eventos condicionales quedan embebidas en las rutinas de los incondicionales de los que estos dependen.
 
-#### La simulación discreta puede realizarse mediante calculos manuales.
+### La simulación discreta puede realizarse mediante calculos manuales.
