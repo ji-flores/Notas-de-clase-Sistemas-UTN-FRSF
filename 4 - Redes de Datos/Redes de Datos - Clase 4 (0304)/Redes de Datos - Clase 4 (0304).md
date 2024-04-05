@@ -101,20 +101,23 @@ Otras entradas que pueden aparecer, son aquellas que uso cuando el mensaje es pa
 *El algoritmo está de manera más especifica en pseudocodigo, en las diapositivas*
 
 ## Concepto
-1. Extraer del datagrama la dirección IP destino, $D$.
-2. Si la tabla de reenvío contiene una entrada hacia un host especifico para el destino $D$, reenviar el datagrama al proximo salto especificado en la entrada. Osea, primero me fijo si hay una fila de host especifico para $D$.
-3. Si el prefijo de red de D coincide con el prefijo de cualquier red de entrega directa, enviar el datagrama a D directamente a través de la red.
-4. Si la tabla de reenvío contiene una entrada que coincida con el prefijo de red de D, reenviar el datagrama al próximo salto especificado en la entrada.
-5. Si la tabla de reenvío contiene una ruta por defecto, reenviar el datagrama al próximo salto especificado en la ruta por defecto.
-6. Si ninguno de los casos anteriores permite el reenvío del datagrama (no existe ruta por omisión), declarar un error de reenvío.
 
-(cambiarlo a la versión coloquial)
+Conceptualmente, el algortimo define el siguiente comportamiento
+1. Extraer del datagrama la dirección IP destino, $D$.
+2. Revisar si el datagrama es para él mismo (unicast, broadcast, loopback)
+3. Si no, revisar si es posible realizar entrega directa, de ser así realizar entrega directa a traves de la red.
+    + Recien si llega a este paso comienza el proceso de **reenvío**.
+4. Si no, revisar si existe una entrada con el prefijo de red de D, y reenviar el datagrama al proximo salto.
+5. Si no, revisar si existe una entrada de ruta por defecto y reenviar el datagrama al proximo salto especificado por esta entrada.
+6. Si no existe ruta por omisión, declarar un error de reenvío.
 
 Pero el encabezado del datagrama no incluye la mascara para determinar el prefijo de red de $D$. Se usa la columna de mascara de cada fila, operando AND con la dirección de destino $D$, y si este resultado coincide con la columna Destino, se elige el proximo salto de esa fila.
 
-Ademas, para cada uno de estos "grupos" (mensajes para mi, host especifico, entrega directa, entrega indirecta...) el recorrido de las filas no es azaroso. Recorre:
+Ademas, para cada uno de los pasos del algoritmo, no se recorren las entradas de la tabla aleatoriamente, se toma el criterio:
 + De la mas especificas (columna Mask con mayor cantidad de 1s), que incluye los envios a hosts especificos y mensajes para si mismo... 
 + Hasta las más generales (columna Mask con menor cantidad de 1s), que incluye todas las otras filas (de entrega directa e indirecta) y por ultimo la fila por default (que directamente no tiene ningún uno).
+
+*Entonces, por ejemplo, si existe una entrada para dos redes que se solapan 10.0.0.0/25 y 10.0.0.0/24, siempre se tomará la entrada correspondiente a 10.0.0.0/25, porque la mascara es "mas especifica"*
 
 # Tabla de reenvío de un host
 La tabla de reenvío de un host solo necesita una entrega indirecta, podemos definir a R1 como próximo salto en la ruta por omisión.
