@@ -28,6 +28,8 @@ A menos que se especifique lo contrario, las variables de LINGO son $\geq 0$ y c
 
 ## Pantalla de solución del modelo
 
+Para resolver un modelo, `Solver -> Solve`, o su shortcut `Ctrl+U`
+
 ### Solver Status
 
 + **Model Class**: Tipo de modelo.
