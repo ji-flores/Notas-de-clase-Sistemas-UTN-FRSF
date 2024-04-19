@@ -8,13 +8,15 @@ El software es como el hombre lobo, inocente y sencillo a primera vista, pero qu
 
 Existen dificultades escenciales y accidentales en el desarrollo de software.
 
-Las dificultades escenciales son inherentes del propio proceso de desarrollar software, y que no admiten la aplicación de una simple metodología que las reduzca. Algunas de ellas son:
+Las **dificultades escenciales** son inherentes del propio proceso de desarrollar software, y que no admiten la aplicación de una simple metodología que las reduzca. Algunas de ellas son:
 
 1. El lenguaje natural es ambiguo, la asignación de significado a los descriptores del lenguaje es distinta de persona a persona, lo que hace que la comunicación entre el cliente y el ingeniero para dejar explicitas cuales son las necesidades del cliente nunca va a ser perfecta. Ademas, el cliente puede no saber expresar bien lo que quiere.
 2. Nunca va a existir una solución perfecta al problema que plantea el cliente, siempre lo que habrá es una solución "de compromiso" basada en el presupuesto que haya disponible para llevar a cabo determinada solución.
 3. Muchas veces, las necesidades del cliente van cambiando durante el transcurso del proceso de desarrollo, por lo que va a haber que introducir cambios en el diseño. Con el tiempo se, han desarrollado metodologias de trabajo que tienen el objetivo de poder responder a estos cambios con mayor facilidad (o menos trabajo), pero la realidad es que siempre va a haber que rehacer algo, porque no se puede saber el futuro.
 
-Las dificultades 
+Las **dificultades accidentales** son aquellas propias del estado del arte de la tecnología en un lugar y un tiempo determinado.
+
+El ejemplo que dio Bracalenti es la creacion de soluciones cada vez más complejas a problemas que son, escencialmente, los mismos. "Un editor de texto en los años 80 era un programa con funcionalidades muy limitadas, y por ende un SW muy simple de desarrollar. Hoy en día, queremos que Word tenga un millon de funcionalidades, como poder agregar imagenes, tablas, texto de colores, etc... Convirtiendose en un SW bastante complejo. Pero, no es que el problema de hacer un SW para editar texto sea más dificil, sino que ahora, solo porque tenemos nueva tecnología para desarrollar, nos mandamos a hacer cosas más complejas que de por si no son la escencia del problema."
 
 ## El software es maleable
 (A diferencia de otros productos de ingenieria) el software es maleable, puede modificarse el producto en si facilmente. Esto lleva a pensar que se pueden realizar modificaciones a la ligera en el software sin realizar cambios de diseño, lo cual es incorrecto y lleva a no poder satisfacer la necesidad a la cual iba dirigida el cambio.
@@ -53,52 +55,64 @@ Son las cualidades internas las que facilitan al equipo de desarrollo a obtener 
     * Medición: Recopilar datos del SW funcionando y descubrir obstaculos en el sistema.
     * Analisis: Construir un modelo analitico (ej. basado en teoria de colas) y analizar los puntos debiles. Menos preciso que simulacro pero menos costoso.
     * Simulacro: Construir un modelo completo de simulación, más caro pero más exacto.
+	
 ### Amigabilidad
 * Un SW es amigable si sus usuarios lo encuentran facil (y comodo) de usar.
 * Se debe concocer bien la userbase del SW para lograr esta cualidad, no todas las personas se relacionan con el SW de la misma manera.
+
 ### Verificabilidad
 * Que sus propiedades puedan ser verificadas.
 * Relacionada con la **trazabilidad**.
 * Para lograrla: Tener claros los requerimientos, una documentación adecuada permite hacer un traceback de los errores más rapido.
 * Otras escuelas de pensamiento buscan retribución rapida del cliente (metodos agiles). No hace falta documentación ya que los errores pueden ser descubiertos rapidamente gracias a esta interacción frecuente con el cliente.
 * Es interna, pero a veces externa. El cliente puede querer tener a mano ciertas metricas de performance.
+
 ### Mantenibilidad
 * Tanto "bug fixing" como cambios a causa de cambios en los requerimientos
 * Tres tipos: **correctivo**, **adaptativo** y **perfectivo**.
     * Correctivo: Remover los errores presentes en el SW luego de su lanzamiento o luego de algun mantenimiento.
     * Adaptativo: "Adaptación al medio ambiente", por ej.: Cambios en el HW o en el SO. Cambios que no pueden ser atribuidos a una caracteristica del SW mismo.
     * Correctivo: Puntualmente *mejorar* (o agregar) alguna cualidad del software.
-*    Puede verse como dos cualidades separadas: reparabilidad y evolucionabilidad. Aunque no hay una linea clara entre las dos: Si las especificaciones de req. son vagas, no sabremos con certeza si estamos corrigiendo un defecto o satisfaciendo un nuevo requerimiento
+*    Puede verse como dos cualidades separadas: reparabilidad y evolucionabilidad. Aunque no hay una linea clara entre las dos: Si las especificaciones de req. son vagas, no sabremos con certeza si estamos corrigiendo un defecto o satisfaciendo un nuevo requerimiento.
+
 ### Reparabilidad
 * Permite la correccion de sus defectos con una cantidad limitada de trabajo.
 * Reflexion: Relacionado con buenas practicas de diseño e implementación. En efecto la bibliografia habla de elegir una estructura modular correcta para evitar acoplamiento y poder aislar los errores.
+
 ### Evolucionabilidad
 * Se toma más a la ligera que en otras disciplinas de ingeniería. Ej: Se saltean estudios de factibilidad. O no se actualiza la documentación luego de introducir cambios.
-* Es importante diseñar con esta caracteristica en mente, ya que de querer implementar de manera correcta cambios en el futuro, estos implicaran cambios en el diseño
+* Es importante diseñar con esta caracteristica en mente, ya que de querer implementar de manera correcta cambios en el futuro, estos implicaran cambios en el diseño.
+
 ### Resuabilidad
 * Reuso del producto: Rara vez con el producto entero, pero diseñando pensando en el reuso puede llevar a que ciertas piezas de software puedan ser utilizados para proyectos futuros. Por ej.: Librerias cientificas, clases (por eso y otras razones es que un buen diseño de objetos, con buena repartija de responsabilidades, es imporante).
 * Reuso del conocimiento especifico sobre un dominio, a veces traducido en reuso de personal.
 * Reuso también del proceso.
+
 ### Portabilidad
 * Capacidad de correr en distintos ambientes (digase: HW o SO).
 * Es bastante caro de obtener. Solo es deseable si el negocio lo permite. Una manera: Primero invertir en una plataforma, recuperar la inversión, y seguir progresivamente con las demos.
+
 ### Comprensibilidad
 * El SW debe ser self-explanatory. Es un hecho que la gente no lee manuales.
 * Desde un punto de vistra externo, tiene que ver con la amigabilidad, y por ende se logra de maneras distintas dependiendo de quien sea el usuario final y sus conocimientos.
 * Internamente tiene que ver con una documentacion de calidad, y se relaciona con con la verificabilidad y la evolucionabilidad (segun la bibliografía, yo agregaría mantenibilidad).
+
 ### Interoperabilidad
 * Capacidad de (como minimo) coexistir, o colaborar con otros sistemas.
 * Puede ser conseguida mediante una estandarización de interfaces. Un ejemplo en otras disciplinas son las interfaces USB que permiten que distintas piezas electronicas colaboren.
 * APIs: Algunos productos lanzan una serie de interfaces para que desarrolladores de otras aplicaciones tomen ventaja de estas funcionalidades.
+
 ### Productividad (o Performance del proceso)
 * Un proceso eficiente resulta en una entrega más rapida del producto.
 * Importante para la economía. El tiempo de desarrollo equivale al costo de producccion, que equivale al costo del producto. Por ende termina siendo una cualidad tanto interna como externa.
 * Es dificil de medir.
+
 ### Oportunidad
 * Capacidad de entregar el producto en tiempo y forma.
 * Es clasicamente dificil de alcanzar en la industria del SW. Una de las razones es que es dificil calcular cuanta cantidad de tiempo lleva producir una determinada de software. Otra son los cambiantes requerimientos del cliente
 * Una manera de conseguirla es mediante entregas incrementales. Permite tener _un_ producto disponible en menos tiempo, y su uso ayuda a refinar sus requerimientos incrementalmente. Esto depende de cuan posible sea dividir las funcionalidades en particiones independientes.
 * No es util si no se llega antes a cualidades de corrección o performance.
+
 ### Visibilidad
 * Basicamente, si el proceso (tanto los pasos como el estado actual) esta claramente documentado.
 * "La visibilidad permite a los ingenieros pesar el impacto de sus acciones y así guiarlas en la toma
@@ -108,18 +122,19 @@ de decisiones."
 
 # Modelos de diseño
 
+`Falta modelo de cascada e iterativo-incremental (RUP)` 
+
 ## Espiral Win-Win de Boehm
 * Es un modelo de espiral. Se comienza mirando las posibles alternativas de desarrollo, se asume la de riesgo más asumible y se hace un ciclo de la espiral. Cada ciclo cuenta con tres etapas:
     * Identificación.
     * Determinación.
     * Negociación.
 
-`Me da la impresión de que "Negociación" es preguntarle directamente al cliente que es lo que quiere, y la "Determinación" es el analista investigando que es realmente lo que el cliente necesita, o que es lo que les alcanza, para despues negociar con nuestras 'condiciones de victoria' como equipo de desarrollo`
-
 # Diseño de entradas
 Como el software es un producto, el cliente emite un juicio de valor en base a lo que está a simple vista, osea la entrada/salida. De tener una interfaz defectuosa (o incluso fea), el cliente seguramente pondrá en duda la calidad de "lo que no se ve" (*"si lo que se ve esta defecuoso, como estará lo que no se ve..."*).
 
 Un cliente opta por un producto porque:
+
 + Le gusta lo que ve.
 + Le gusta lo que recibe.
 + Le conviene el precio por lo que ve y recibe
@@ -127,6 +142,7 @@ Un cliente opta por un producto porque:
 + Le gusta como se autopercibe.
 
 Para el diseño de entradas, tener en cuenta:
+
 1. Corrección: Los datos que son ingresados al sistema deben ser los esperados. Ademas, aquellos que se cargan deben ser, efectivamente, los que son almacenados.
 2. Funcionalidad: La interfaz debe ser intuitiva y facil de usar, amigable.
 3. Estetica: La interfaz debe ser "linda" a la vista. Esto es subjetivo y también debería consultarse con el cliente.
@@ -138,6 +154,7 @@ Para asegurar la corrección de los datos ingresados, se han de usar dos estrate
 ### Verificación
 Una entrada de un sistema puede recibir efectivamente cualquier cosa, por lo que debe de hacerse una clasificación de todo el universo de datos en datos **validos** e **invalidos**, y realizar validar el comportamiento del sistema ante ambos conjuntos de datos.
 Cosas a tener en cuenta:
+
 * El conjunto de datos invalidos es, con mucha frecuencia, muchisimo mas grande que el conjunto de datos validos.
 * No pueden probarse todos los datos, ya sea porque el conjunto es demasiado extenso y testear su totalidad no es rentable, o directamente es un conjunto infinito.
 
@@ -156,6 +173,7 @@ Cualquier objeto con muchos parametros es debil, e inevitablemente va a colapsar
 ### Codificación
 Soluciona el problema de que un mismo dato pueda ser ingresado de muchas maneras.
 Un codigo debe ser eficaz (representar de manera univoca un dato) y eficiente (debe ser corto, más rapido de tipear por ej.). Se puede codificar para:
+
 * Mantener seguimiento de algo.
 * Clasificar información.
 * Revelar información
@@ -163,37 +181,42 @@ Un codigo debe ser eficaz (representar de manera univoca un dato) y eficiente (d
 * Solicitar una acción
 
 **Tipos de codificación:**
+
 * Secuencial simple.
     * Muy facil de generar.
     * La ley puede exigirlo.
     * Al no tener relacion semantica con el dato, es dificil de recordar a que dato esta relacionado. Aunque puede servir para pocas entidades
     * Es util cuando se usa como codigo interno del sistema. Ej: Bases de datos.
-
 * Alfanumericos.
     * Mucha potencia de codificación, es decir, con pocos caracteres se pueden codificar muchos objetos.
     * También tiene el problema de la falta de relacion semantica. Esto se soluciona asignando a cada posicion un tipo de caracter especifico.
-
 * De Clasificación: Cada número representa un tipo de dato distinto.
 * De bloques secuenciales: 
 
 ## Funcionalidad
 Para lograr la amigabilidad de la entrada, Mandel enuncia tres reglas:
+
 ### 1. Dejar el control al usuario.
 Muchas veces para facilitar la implementación, se termina empeorando la usabilidad de la interfaz.
+
 * No obligar al usuario a realizar acciones que no quiere. Identificar el proposito del sistema y hacer al usuario interactuar con ello.
 * Interaccion flexible y adaptable: Interfaz personalizable, cambiable para cada usuario. No aburrir al experto ni abrumar al novato.
 * Interaccion interrumpible / reversible: Toda acción debe poder revertirse.
 * Ocultar tecnicismos al usuario.
 * Diseñar interacción directa con objetos de la pantalla
+
 ### 2. No sobrecargar la memoria del usuario.
 Mientras mas cosas deba recordar el usuario, mas probable es que le cueste / falle al interactuar con el sistema.
+
 * Reducir la demanda de memoria a corto plazo.
 * Lo preestablecido debe ser significativo y agilizar la interacción, no realentizarla.
 * Los atajos de teclado deben ser intuitivos. Ej: Ctrl+V no es intuitivo, Ctrl+P (Print) es un mejor ejemplo.
 * Revelar información de manera progresiva: Mucha información en una misma pantalla abruma al usuario.
 * La interfaz debe basarse en una "metafora del mundo real". Ej: Para eliminar, usar iconos de un tacho de basura.
+
 ### 3. Hacer que la interfaz sea consistente.
 La interfaz debe obtener y presentar información de manera consistente.
+
 * Consistencia tanto interna como externa.
     * Interna: Mecanismos consistentes. Iguales teclas → Iguales acciones, Iguales colores → Iguales significados.
     * Externa:  Debe ser parecida a aplicaciones (del mismo estilo) que el usuario ya haya usado, y por ende aprendido como funcionan.
@@ -215,6 +238,7 @@ Conocer al usuario. Que hace, cuando lo hace, cuanto sabe. También evaluar el e
 
 ### Diseño de la interfaz
 Se definen una serie de objetos e interacciones. Definir eventos que cambian la interfaz. No se hace escribiendo codigo sino por medio de sketching.
+
 - Tiempo de respuesta
 - Herramientas de ayuda. **No** manuales; ayudas rapidas, tips.
 - Manejo de errores. Mensajes **claros**, y como solucionarlos.
@@ -223,18 +247,20 @@ Se definen una serie de objetos e interacciones. Definir eventos que cambian la 
 
 # Diseño de salidas
 Es extremadamente importante por ser la primera impresión que una persona tiene de una organización. Requiere de un trabajo de interacción con el usuario. Pautas a cumplir:
+
 1. Debe tener un proposito: Si una salida no es funcional, hay costos y materiales gastados. Propositos que puede tener una salida son: Entretener, informar, operar, y (la mas importante) asistir en la toma de decisiones.
 2. Ajustadas al usuario: **Preguntar** sobre el problema, **observar** el entorno, **calcular** la solución del problema y recien alli comenzar a **diseñar**. Como siempre, a medida que aumenta la userbase se vuelve mas complicado satisfacerla completa.
 3. Debe tener una cantidad adecuada de datos: Nunca es util una cantidad excesiva de información. Abruma al usuario y hace que la información importante pueda perderse entre la abundancia de datos. Inicialmente mostrar lo escencial y en todo caso, proveer una manera de acceder a más información.
 4. Asegurarse que la salida este donde se necesita y de forma oportuna: Asegurarse que la persona que tenga que ver la salida, la vea. La salida debería presentarse en el lugar, y al tiempo requerido, para que la persona que tiene que tomar las decisiones. Es una condición **necesaria**.
 
-Faltan tipos de salida
+`Faltan tipos de salida.`
 
 # Sesgo
 ### Definición
 Es una interpretación incorrecta de los datos presentados, independientemente de la corrección de los mismos. Surge de una predisposición del usuario a interpretar los datos de cierta manera.
 
 Puede provenir de:
+
 + Colores: Las personas tenemos respuestas institntivas a ciertos colores.
     + Verde, Azul: Tranquilidad.
     + Amarillo: Precaución
@@ -257,10 +283,11 @@ Como siempre, cuidar la estetica. La presentación en texto se hace en una carpe
 
 ### Titulo
 Se puede elegir:
+
 * Un **titulo "memorable"**: Es un titulo que apele al deseo de trascender del cliente, de sentirse importante. Ej: El proyecto de informatización del Banco Central a principios de siglo se llamo "Proyecto Centenario".
 * Acronimo: Siglas. Se deben encontrar siglas que sean faciles de pronunciar y/o recordar, pero que sigan teniendo coherencia. Un buen ejemplo de siglas es ACID para principios de bases de datos relacionales, BASE sigue siendo memorable pero es un poco rebuscado.
 * Que no tenga nada que ver con el sistema, pero que sea "lindo" y transmita quiza una filosofía del proyecto, o una idea. Ej: Proyecto Colibrí.
-* 
+
 ### Resumen ejecutivo
 No debe superar bajo ninguna circunstancia las 300 palabras (menos de una carilla), cada palabra debe valer y ser indispensable, de lo contrario resumir. Debe centrarse en **que** es lo que se pretende hacer, que **beneificios** trae invertir en el proyecto, **cuanto** cuesta, **cuando** se hara (en que plazo de tiempo) y cuando se recuperará la inversión. __NO__ se debe poner el como se hará, ya que implicaría entrar en tecnisismos que van a perder la atención de los ejecutivos.
 
@@ -303,6 +330,7 @@ Riesgos escenciales: No son inherentemente malos, ya que son, de alguna manera, 
 Riesgos accidentales: No son propios del negocio y se busca reducir su ocurrencia/incidencia. Son perjudiciales.
 
 ### Maneras de manejar riesgos
+
 + Aceptarlo: "Dejar ser" al problema. Este es el caso cuando planificar y ejecutar un plan de gestión de riesgo es más costoso que el riesgo en sí.
 + Reducirlo: Puede ser bien minimizar la probabilidad de ocurrencia ("prevenir"; reducir la causa) o minimizar el impacto de las consecuencias ("curar"; reducir la consecuencia).
 + Transferirlo: Derivar la responsabilidad del manejo del problema a otra parte.
@@ -324,6 +352,7 @@ Como el software es intangible, no pueden hacerse pruebas matematicas o fisicas 
 Una prueba es exitosa cuando el resultado **no** coincide con el resultado esperado. Para poder lograr esto, es necesario que las salidas que son esperadas esten taxativamente descritas, asi podra determinarse con presición si el resultado obtenido es el esperado o no.
 
 ## Psicología de la prueba
+
 + Las pruebas deben ser realizadas por una persona distinta a la que codeo el bloque de SW a probar. El programador tiende a tener "empatía" por su trabajo. Aunque sea inconscientemente, nadie quiere destruir su propio trabajo. Entonces se termina probando en positivo. ` Si entiendo bien, esto significa no buscar el error, sino buscar que el resultado sea el esperado.`
 + En metodos agiles se admite que esta persona sea _otro_ de los desarrolladores, pero idealmente debe de ser un **tester**, una persona dedicada explicitamente a realizar las pruebas, que tenga la experiencia y una "visión" distinta (que puede llamarse más "destructiva", en comparación a la del programador) que le permita encontrar fallas donde alguien no especializado no hubiera buscado.
     + A veces son hasta resentidos por estar "en contra" del objetivo economico. A pesar de que cada error que encuentren es al final algo positivo, y el objetivo de las pruebas, también cada error encontrado te aleja de un software correcto.
@@ -331,12 +360,15 @@ Una prueba es exitosa cuando el resultado **no** coincide con el resultado esper
 `De apuntes: "Salvo que estemos trabajando en algún método ágil, no recomienda que el programador y el probador sea la misma persona". ¿Esto es así? Me parecería que, salvo para pruebas simples de escritorio, nunca el mismo programador debería probar, debería ser al menos otro de los programadores.`
 
 ## Economía de la prueba
+
 + Realizar pruebas es una **inversión**, no un gasto. Cada error que no se encuentre se traducirá luego en gastos de mantenimiento, o bien si no es resuelto, se traducirá en un software que nadie querrá usar, y un cliente descontento.
 + Como es imposible demostrar que el SW esta libre de errores, el final de las pruebas esta dictado por el agotamiento del tiempo o los recursos que hayan sido asignados en el contrato.
 + Para poder lograr esto, es necesario que las salidas que son esperadas esten taxativamente descritas, asi podra determinarse con presición si el resultado obtenido es el esperado o no. Ademas, evita que uno intente "autoconvencerse" de que el resultado obtenido es correcto.
 
 ## Tipos de pruebas. Segun "nivel"
+
 ### Pruebas de nivel inferior
+
 + **No incrementales:** `Es lo mismo que test unitario?` Se prueba cada componente de manera aislada. Son rapidas y simples, es facil encontrar donde se producen los errores.
     + Desventaja: No es capaz de detectar errores de integración entre los componentes.
     + Desventaja: Acoplamiento entre componentes dificulta las pruebas individuales. A mayor el acople, más fragil es el componente (susceptible a errores, y mas dificil de encontrarlos).
@@ -373,6 +405,7 @@ Una definición podría ser aquellas pruebas en las que se corrobora que el soft
 
 ### Caja negra
 Se realizan sin acceso al codigo fuente, analizandose unicamente las entradas y salidas al sistema.
+
 ### Caja blanca
 
 Se tiene el codigo a mano a la hora de probar.
@@ -382,12 +415,14 @@ Permite probar todos los caminos lógicos (aunque en codigo muy complejo esto no
 Se utiliza para pruebas no incrementales (a nivel de objeto), no tanto a nivel de sistema.
 
 Se realiza:
+
 + En secciones de codigo de mucha importancia.
 + Secciones de codigo propensas a errores.
 + Por cuestiones de seguridad. Para evitar que el programador pueda introducir lineas de codigo perjudiciales (backdoors, redirigir dinero a su cuenta).
 + Por cuestiones legales.
 
 ## Terminación de las pruebas
+
 ### Deadline
 Son razones politicas: Por una decisión "de arriba", el software sale en tal fecha. Cualquier problema que pueda seguir habiendo se solucionara como parte del mantenimiento. Como aspecto positivo, es una manera de despojarse de responsabilidad ("si teniamos tiempo, podriamos haberlo hecho mejor").
 
@@ -403,25 +438,14 @@ Puede buscarse un criterio más objetivo, ya que el vencimiento del periodo de p
 ### Criterios económicos
 Los metodos más objetivos pueden ser sobrepasados por el hecho de que en el contrato se destina cierto presupuesto a las pruebas, que esta limitado por la rentabilidad (ganancia) que se quiere obtener del proyecto, los impuestos, gastos directos e indirectos...
 
-```
-## Terminación de las pruebas
-Por más que en la practica el final de las pruebas se determina o bien por
-+ El vencimiento de un tiempo que se ha pactado para las pruebas, o
-+ Los casos de prueba han arrojado el resultado esperado (han sido infructuosos)
-
-Ambos metodos tienen sus problemas. El vencimiento de un periodo de pruebas no dice nada sobre la calidad de las pruebas (tranquilamente podría no haberse hecho nada), y que los casos de prueba hayan sido infructuosos no te asegura que estas pruebas sean de calidad. Meyer propone tres metodos:
-
-+ *"Se obtienen casos de prueba de (1) analisis de valores limite y (2) conjetura de errores, y se prueba hasta que todos estos casos resulten infructuosos"*.
-    + Desventaja: Se asume la utilización de ciertos metodos para el diseño de casos de prueba que pueden ser i) no aptos para la utilización en esta etapa de pruebas (prueba de sistemas, por ejemplo), o ii) quien ejecuta las metodologias podría no estar haciendolo de manera rigurosa.
-    + Se utiliza: En prueba de componentes.
-```
-
 ## Notas
+
 + Los componentes donde más errores se encuentran son aquellos en los que han trabajado un mayor numero de personas. (Por ej.: Un programador no entiende completamente lo que hizo el otro)
 + Componentes donde *ya* se han encontrado errores.
 
 # Debugging
 Luego de que un caso de prueba es exitoso (se encuentran errores), sigue el proceso de debugging, que consiste:
+
 1. Entender la naturaleza exacta del error, y encontrarlo.
 2. Corregirlo.
 
@@ -434,6 +458,7 @@ Luego de que un caso de prueba es exitoso (se encuentran errores), sigue el proc
 ## ¿Por qué cometemos errores?
 
 Existe una posibilidad de que durante el debugging se introduzcan errores, incluso más significativos de los que existian anteriormente, por lo que se debe ser consciente de las razones por las que comentemos errores:
+
 + Ignoracia sobre el problema: No tenemos idea del problema que estamos resolviendo. No tiene una solución clara, porque tampoco podemos ser todologos.
 + Ignorancia sobre las herramientas de desarrollo o debugging: Pretendemos resolver el problema con el (poco) conocimiento que tenemos de las herramientas. A diferencia del anterior, tiene solución.
 + Compromiso emocional: Las alegrias y los desencantos en mayor o menor medida afectan todos los aspectos de nuestra vida, incluido nuestro trabajo. Con suerte, con el tiempo se pasan.
@@ -447,6 +472,7 @@ Aunque ineficientes y muchas veces infructuosas, son las formas más comunes por
 
 ### Vuelco de memoria
 Se analiza un vuelco de memoria (a un documento) en un momento determinado de la ejecución del SW. Tiene varias desventajas:
+
 + Es dificil establecer una relacion entre las direcciones de almacenamiento y las variables del sistema.
 + La cantidad de información obtenida es enorme y en su mayoria irrelevante.
 + Constituye una imagen estática del sistema (que rara vez se realiza en el punto exacto que se necesita para mostrar el error), mientras que para la mayoria de los errores se requiere estudiar el comportamiento dinamico del sistema.
@@ -454,6 +480,7 @@ Se analiza un vuelco de memoria (a un documento) en un momento determinado de la
 
 ### Esparcimiento de sentencias
 Esparcir sentencias en el codigo con el objetivo de mostrar mensajes, informar el valor de variables e incluso forzar operaciones.
+
 + Ventaja: Con respecto al vuelco, si permite ver el comportamiento dinamico del sistema.
 + Desventajas:
     + Sigue siendo "prueba y error", sin mucho razonamiento atras.
@@ -462,6 +489,7 @@ Esparcir sentencias en el codigo con el objetivo de mostrar mensajes, informar e
 
 ### Herramientas de debugging
 Pueden introducir "puntos de detención", suspendiendo la ejecución cuando se cruza por alguna sentencia, o se modifica alguna variable, permitiendo ver el estado del sistema en ese momento. 
+
 + Ventaja: Ya no se introducen sentencias al programa.
 + Desventaja: Sigue siendo "prueba y error", sin solucionar la necesidad de analizar información irrelevante. Hay evidencia experimental de que no son más eficientes que los metodos reflexivos.
 
@@ -470,6 +498,7 @@ Implica el uso de la racionalidad para solucionar el problema. Son menos usados 
 
 ### Inducción
 "De lo particular a lo general". Comenzando con las pistas o "sintomas del error" (usualmente el resultado de uno o más casos de prueba) y buscando relaciones, a menudo se puede llegar al error.
+
 1. Se registra que es lo que el sistema hace bien y lo que no, viendo los resultados de varios casos de prueba que tengan que ver con el error (incluso aquellos casos similares, pero que no generan el error).
 2. Se observa la información obtenida en busca de alguna estructura, o contradicción.`La tabla de QUE, CUANDO, DONDE, CON QUE ALCANCE`
 3. Se formula una hipotesis. Si no se logra, se necesitan más datos (pueden generarse más casos de prueba).
@@ -478,6 +507,7 @@ Implica el uso de la racionalidad para solucionar el problema. Son menos usados 
 
 ### Deducción
 "De lo general a lo particular". Se generan en un principio teorias generales sobre cual puede ser el problema, y a medida que se obtiene información se van descartando.
+
 1. Desarrollar una lista de posibles causas: No hace falta que sean ideas completas, y debe ser la mayor cantidad de ideas posibles (brainstorming). En esta etapa se consideran todas, no se descarta ninguna todavía.
 2. Por medio de la información obtenida via los casos de prueba, se van eliminando las teorias que contradigan estos datos. Si todas las hipotesis son eliminadas, es necesario obtener más información (por medio de más casos de prueba).
 3. Clarificar las hipotesis restantes: Se busca refinarlas con la información que se tiene para que describa precisamente el error.
@@ -485,8 +515,6 @@ Implica el uso de la racionalidad para solucionar el problema. Son menos usados 
 
 ### Backtracking
 Seguir la logica del sistema "hacia atras" hasta encontrar el punto donde se da el error. Solo funciona para SW pequeño.
-
-
 
 # Implementación
 El proceso de implementación es costoso, lento y problematico, por lo que requiere de su debida atención.
@@ -498,6 +526,7 @@ Comienza con cuestiones de logistica, como la instalación de un llamado **centr
 También tiene un claro final, una evaluación para determinar que se hecho bien y que debería mejorar. No tiene el objetivo de buscar culpables de potenciales errores, sino simplemente registrar estas cosas y mejorar en base a ello.
 
 En el medio, existen cuatro etapas que no tienen orden de precedencia ni de importancia.
+
 + Conversión de programa.
 + Conversión de datos.
 + Conversión de procedimientos.
@@ -549,6 +578,7 @@ Sustitución del software viejo por el nuevo. Puede realizarse de muchos metodos
 
 ### De golpe o "crash"
 A partir de una fecha dada, el sistema viejo deja de utilizarse y se pone en uso el sistema nuevo, completo. Como unica ventaja, obliga a los usuarios al empleo inmediato del SW nuevo, luego todo el resto son desventajas. A cualquier cosa que salga mal, no hay red de contención. Solo se usa cuando:
+
 1. Es un SW trivial, del cual no depende el funcionamiento del negocio.
 2. El sistema viejo colapso completamente y quedó inutilizable.
 3. Disposiciones gubernamentales. "A partir de cierta fecha debe estar en funcionamiento tal sistema".
@@ -557,6 +587,7 @@ A partir de una fecha dada, el sistema viejo deja de utilizarse y se pone en uso
 El sistema viejo y el nuevo funcionan, como dice el nombre, en paralelo.
 
 Tiene como ventaja que ante cualquier fallo del sist. nuevo, siempre esta el sistema viejo para salvarte. Aunque existen los siguientes inconvenientes:
+
 + Es caro: Deben hasta duplicarse los costos de personal y mantenimiento.
 + El personal que maneja el sistema viejo puede sentir que será desechado junto al software viejo. Una posible solucion es ir rotando paulatinamente el personal de cada sistema, aunque persiste la posibilidad de daños intencionales al sistema nuevo.
 + `(Esta la agrego yo)` Debe asegurarse la consistencia de las operaciones del sistema viejo y el nuevo.
@@ -627,6 +658,7 @@ Si se trabaja con metodos agiles, tener en cuenta que se maneja poca trazabilida
 + **Evolutivo**: Los requerimientos del software cambian constantemente en el tiempo, por ende deben introducirse actualizaciones para adaptarse a los mismos.
 
 ## Tipos de mantenimiento
+
 ### Correctivo
 En el uso cotidiano del sistema se van descubriendo fallas introducidas durante el desarrollo. El mantenimiento correctivo corresponde a la generación de nuevas versiones del software que corrigan estos errores.
 
