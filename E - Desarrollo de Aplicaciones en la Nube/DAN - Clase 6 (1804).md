@@ -12,4 +12,4 @@ Nota: Modelos anemicos, modelos de clase donde las clases no tienen estado. Suce
 
 Inversión de Control, busca flexibilizar lo más posible las dependencias.
 
-¿Que es una dependencia? 
+¿Que es una dependencia?

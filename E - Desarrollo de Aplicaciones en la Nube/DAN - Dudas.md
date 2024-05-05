@@ -1,0 +1,2 @@
+- [ ] Diapositivas 38, 39 de Presentacion 03: ¿Cual es la diferencia, en ese dibujo, entre comunicaciones con HTTP, sin y con Rest? Porque ninguna de las dos esta guardando el estado en la aplicación.
+- 
