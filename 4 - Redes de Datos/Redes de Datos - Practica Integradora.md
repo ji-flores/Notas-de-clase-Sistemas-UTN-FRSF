@@ -198,3 +198,7 @@ En este caso el unico area considerada es el backbone o area 0.
 ## 5.8)
 
 Considero que se llegó a la convergencia porque al revisar la tabla de reenvío de cada router, cada una tiene una entrada para cada una de las 10 LANs de la topología. Aclarar que para que se simulen correctamente las LANs 3 y 4 tuvieron que agregarse hosts adicionales, porque de lo contrario las interfaces del Router4 correspondientes a esas LANs se mostraban como apagadas y no se compartia información sobre como llegar a las redes mediante el protocolo OSPF.
+
+Un dato importante a mencionar es que el link, y por lo tanto la adyacencia entre los Routers 2 y 3 no estaba funcionando correctamente por una discrepancia entre el MTU que tenía configurado para ese enlace Router2 (MTU=1000) y Router3 (MTU=1500).
+
+Este error se descubrio viendo que el estado de adyacencia (`routing ospf neighbor print value-list`) entre ellos estaba en `ExStart`, cuando lo ideal es que esté en `Full`. Ademas se notaba un comportamiento raro cuando capturabas el enlace entre ellos. 
