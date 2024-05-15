@@ -135,3 +135,11 @@ Cada SA tiene un area troncal (backbone), el area 0. Todas las areas deben conec
 Dos routers son adyacentes son dos routers que resolvieron que van a intercambiar información.
 
 OSPF es como 3 protocolos en 1: Hello, Inundación y SPF.
+
+*(Completar con Diapositiva y Apunte)*
+
+---
+
+## Notas de la practica
+
++ Por convención, el router designado es aquel cuya interfaz tiene la mayor dirección IP. MikroTik no sigue esta convención y siempre que pueda se autoasigna como router designado (si no encuentra a nadie asignado, se asigna y esto no cambia por la duración del proceso).

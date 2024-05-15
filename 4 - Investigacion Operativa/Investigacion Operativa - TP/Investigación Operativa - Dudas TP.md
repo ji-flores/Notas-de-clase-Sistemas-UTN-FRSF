@@ -13,6 +13,9 @@
 + Sabiendo el valor agregado unitario, por ende el valor agregado total, en conjunción con el dinero invertido en compra de la materia prima y transporte, es posible realizar una cota superior al rendimiento de capital invertido en La Serenisima.
 + Pero a partir de esa cota es posible comparar el costo oportunidad con otros tipos de inversión de riesgo.
 
+# Supuestos
++ Por falta de datos en la tabla que especifica los productos elaborados por PE, se considera que los *POSTRES LACTEOS* se elaboran en la planta Complejo Industrial Pascual Mastellone.
+
 # Bosquejo
 
 ## Clasificacion de productos
@@ -23,7 +26,6 @@
     + Los productos agrupados estan medidos tanto en kg. como en lt. Y no es tan facil hacer una conversión de lts. de leche a kgs.
 3. Clasificarlos con una clasificacion nuestra.
     + Leche Fluida, Leche Seca, Otros (Refrigerados), Otros (No refrigerados). Sigue el problema de conversión de leche cruda a producto.
-
 
 ## Variables
 $x_{ijkw}$: Producto $i$ que se elabora en la planta de elaboración $j$ y se distribuye en el centro de distribución $k$, con el objetivo de satisfacer su demanda en la provincia $w$.
