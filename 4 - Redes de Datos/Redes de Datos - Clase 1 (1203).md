@@ -10,10 +10,10 @@ Redes de Datos - Clase 1 (12/3)
 **Regularización**
 + Aprobar los dos trabajos practicos (>= 60).
     + En horario de clase.
-    +  Uno solo se recupera fuera de cursado.
-    +  Son individuales y sincronicos.
-    +  Se realizan por campus.
-    +  Carpeta abierta, aunque **no** internet y si o si en la PC de laboratorio.
+    + Uno solo se recupera fuera de cursado.
+    + Son individuales y sincronicos.
+    + Se realizan por campus.
+    + Carpeta abierta, aunque **no** internet y si o si en la PC de laboratorio.
 
 **Promoción**
 + Obtener regularidad.
