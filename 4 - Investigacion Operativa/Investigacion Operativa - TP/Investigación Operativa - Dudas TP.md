@@ -15,6 +15,8 @@
 
 # Supuestos
 + Por falta de datos en la tabla que especifica los productos elaborados por PE, se considera que los *POSTRES LACTEOS* se elaboran en la planta Complejo Industrial Pascual Mastellone.
++ Se considera que la Leche Saborizada tiene la misma densidad que la leche normal ($1.031 \left[ \frac{kg}{lt} \right]$).
++ Se considera la densidad de la crema como $0.93 \left[ \frac{kg}{lt} \right]$.
 
 # Bosquejo
 
