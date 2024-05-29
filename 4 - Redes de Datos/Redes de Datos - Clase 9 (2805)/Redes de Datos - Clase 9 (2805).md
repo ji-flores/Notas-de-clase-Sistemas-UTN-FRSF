@@ -79,3 +79,50 @@ _Nota: En aplicaciones como SSH, esto nunca pasa porque pide un cierre a nivel a
 Para casos, por ejemplo, donde la conexión se cierra pero quedan datagramas todavia pendientes en la red. Si se vuelve a abrir una conexión muy rapidamente luego de cerrarla, entre los mismos dos puertos, estos datagramas pendientes pueden llegar y confundirse con información perteneciente a la nueva conexión (debería darse que justo los numeros de secuencia sean coherentes, dificil pero puede pasar). Con el temporizador Time-Wait, se fuerza un tiempo de espera luego del cierre de la conexión para evitar estas situaciones.
 
 ![image](https://github.com/qxtclxr/Notas-de-clase-Sistemas-UTN-FSRF/assets/110787625/a5803d2b-905b-42e9-b82e-78b9f3886157)
+
+## Control de congestión
+
+_(completar toda esta sección con diapositiva, pag 75)_
+
+La congestion de produce porque un router empieza a llenar sus buffers de entrada y salida.
+
+Las posturas son:
+
++ Modelo basado en red: "La culpa es los routers que transmiten rapido o procesan lento".
++ Modelo ...: "La culpa es de las aplicaciones que generan muchos datos"
+
+---
+
+Se utilizan tres variables.
+
++ cwnd: Ventana de congestion.
++ rcv_win: Ventana del receptor.
++ ssthresh: Valor del umbral. Actualiza a cwnd.
+
+Solo con estos datos, TCP puede controlar la cantidad de datos que transmite a la red.
+
+Para le envío calcula = emit_win = min(rcv_win,cwnd). De esa manera, no satura al emisor, ni a la red.
+
+### Slow start
+
+_Nota: Es una **notificación implicita de congestión**._
+
+¿Como se conoce la capacidad de la red, y por consiguiente el valor de cwnd?
+
+Nota: Esto es una simplificación. Obviamente, no siempre se envian segmentos con tamaño igual a un MSS. Pero...
+
+### Notificacion explicita de congestión
+
+**No** suplanta a la notificación implicita, se complementan.
+
+Al principio de la conexión, se negocian parametros, y entre ellos estan los bits ECE y CWR, que tienen que estar activados en ambos extremos para que se use la notif. explicita.
+
+Cuando un paquete pasa por un router congestionado, lo indica en el campo "Type of Service". Cuando el datagrama llega a destino, avisa a capa 4. Ahora es cuando el receptor envia un segmento al emisor, se lo envía con el bit ECE activado. Cuando el emisor recibe esto, toma las mismas acciones "debiles" que cuando recibe tres ACK duplicados, y usará la bandera CWR para avisar al receptor que recibio el la notif. explicita de congestión.
+
+## SACK permitted y SACK
+
+Cuando los segmentos llegan fuera de orden, el receptor lo pone en su ventana de recepción, y vuelve a indicar el siguiente segmento que esperaba recibir. 
+
+También puede negociarse al principio de la conexión, que el receptor avise _adicionalmente_ lo que si recibio, que estaba fuera de orden, para que el emisor no lo retransmita.
+
+El SACK informa (hasta 4) bloques de segmentos recibidos. El primero puede contener cosas que ya recibi...
