@@ -49,6 +49,10 @@
 |6   |eth0    |Saliente        |10.1.1.5/32        |10.1.1.4/32         |TCP                 |80              |>1023            |Si      |Permitir|
 |7   |eth0    |Saliente        |10.1.1.5/32        |192.168.0.1/32      |TCP                 |>1023           |110              |Si/No   |Permitir|
 |8   |eth0    |Entrante        |192.168.0.1/32     |10.1.1.5/32         |TCP                 |110             |>1023            |Si      |Permitir|
+|9   |eth0    |Entrante        |10.1.1.4/32        |10.1.1.5/32         |ICMP Msg: Echo Reply| -              | -               | -      |Permitir|
+|10  |eth0    |Saliente        |10.1.1.5/32        |10.1.1.4/32         |ICMP Msg: Echo Req. | -              | -               | -      |Permitir|
+|11  |lo      |E/S             | -                 | -                  | -                  | -              | -               | -      |Permitir|
+|12  | -      | -              |0.0.0.0/0          |0.0.0.0/0           | -                  | -              | -               | -      |Denegar |
 
 # Ejercicio 4
 |Nº |Interfaz|Sentido de flujo|Direccion de origen|Direccion de destino|Protocolo           |Puerto de origen|Puerto de destino|Flag ACK|Accion  |
@@ -73,8 +77,3 @@
 |18 |ppp0    |Entrante        |0.0.0.0/0          |200.45.177.2/32     |TCP                 |443             |>1023            |SI      |Permitir|
 |19 |lo      |E/S             |-                  |-                   |-                   |-               |-                |-       |Permitir|
 |20 |-       |-               |0.0.0.0/0          |0.0.0.0/0           |-                   |-               |-                |-       |Denegar |
-
-|9   |eth0    |Entrante        |10.1.1.4/32        |10.1.1.5/32         |ICMP Msg: Echo Reply| -              | -               | -      |Permitir|
-|10  |eth0    |Saliente        |10.1.1.5/32        |10.1.1.4/32         |ICMP Msg: Echo Req. | -              | -               | -      |Permitir|
-|11  |lo      |E/S             | -                 | -                  | -                  | -              | -               | -      |Permitir|
-|12  | -      | -              |0.0.0.0/0          |0.0.0.0/0           | -                  | -              | -               | -      |Denegar |
