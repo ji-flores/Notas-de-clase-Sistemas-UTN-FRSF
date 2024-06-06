@@ -26,7 +26,8 @@
 |9   | -      | -              |0.0.0.0/0          |0.0.0.0/0           | -                  | -              | -               | -      |Denegar |
 
 # Ejercicio 3
-### a)
+
+## Inciso a)
 
  1. No. 10.1.1.5 puede conectarse a puertos 80 ajenos, pero otros hosts no pueden conectarse a su puerto 80.
  2. Si. Las reglas 1 y 2 permiten abrir conexiones a dispositivos dentro de la LAN con puerto 110 (POP3), siempre que lo hagan desde un puerto que no corresponde a servicios conocidos (preguntar porqué es esto después).
@@ -38,7 +39,7 @@
  8. Idem 7.
  9. La política por defecto de trafico tanto entrante como saliente es *denegar*.
 
-### Inciso b)
+## Inciso b)
 |Nº  |Interfaz|Sentido de flujo|Direccion de origen|Direccion de destino|Protocolo           |Puerto de origen|Puerto de destino|Flag ACK|Accion  |
 |----|--------|----------------|-------------------|--------------------|--------------------|----------------|-----------------|--------|--------|
 |1   |eth0    |Entrante        |10.1.1.0/24        |10.1.1.5            |TCP                 |>1023           |110              |Sí/No   |Permitir|
@@ -77,3 +78,46 @@
 |18 |ppp0    |Entrante        |0.0.0.0/0          |200.45.177.2/32     |TCP                 |443             |>1023            |SI      |Permitir|
 |19 |lo      |E/S             |-                  |-                   |-                   |-               |-                |-       |Permitir|
 |20 |-       |-               |0.0.0.0/0          |0.0.0.0/0           |-                   |-               |-                |-       |Denegar |
+
+# Ejercicio 5
+## Servidor Publico
+|Inciso|Nº |Interfaz|Sentido de flujo|Direccion de origen|Direccion de destino|Protocolo               |Puerto de origen|Puerto de destino|Flag ACK|Accion  |
+|------|---|--------|----------------|-------------------|--------------------|------------------------|----------------|-----------------|--------|--------|
+|a)    |1  |lo      |I/O             |-                  |-                   |-                       |-               |-                |-       |Permitir|
+|b)    |2  |eth0    |IN              |0.0.0.0/0          |181.1.5.1/32        |TCP                     |>1023           |25               |SI/NO   |Permitir|
+|b)    |3  |eth0    |OUT             |181.1.5.1/32       |0.0.0.0/0           |TCP                     |25              |>1023            |SI      |Permitir|
+|b)    |4  |eth0    |IN              |0.0.0.0/0          |181.1.5.1/32        |TCP                     |>1023           |80               |SI/NO   |Permitir|
+|b)    |5  |eth0    |OUT             |181.1.5.1/32       |0.0.0.0/0           |TCP                     |80              |>1023            |SI      |Permitir|
+|b)    |6  |eth0    |IN              |0.0.0.0/0          |181.1.5.1/32        |TCP                     |>1023           |443              |SI/NO   |Permitir|
+|b)    |7  |eth0    |OUT             |181.1.5.1/32       |0.0.0.0/0           |TCP                     |443             |>1023            |SI      |Permitir|
+|c)    |8  |eth0    |OUT             |181.1.5.1/32       |0.0.0.0/0           |TCP                     |>1023           |25               |SI/NO   |Permitir|
+|c)    |9  |eth0    |IN              |0.0.0.0/0          |181.1.5.1/32        |TCP                     |25              |>1023            |SI/NO   |Permitir|
+|d)    |10 |eth0    |IN              |10.1.1.0/24        |181.1.5.1/32        |TCP                     |>1023           |110              |SI/NO   |Permitir|
+|d)    |11 |eth0    |OUT             |181.1.5.1/32       |10.1.1.0/24         |TCP                     |110             |>1023            |SI      |Permitir|
+|d)    |12 |eth0    |IN              |10.1.1.0/24        |181.1.5.1/32        |TCP                     |>1023           |23               |SI/NO   |Permitir|
+|d)    |13 |eth0    |OUT             |181.1.5.1/32       |10.1.1.0/24         |TCP                     |23              |>1023            |SI      |Permitir|
+|e)    |14 |eth0    |IN              |10.1.1.0/24        |181.1.5.1/32        |ICMP (msg =  Echo Req.) |-               |-                |-       |Permitir|
+|e)    |15 |eth0    |OUT             |181.1.5.1/32       |10.1.1.0/24         |ICMP (msg =  Echo Reply)|-               |-                |-       |Permitir|
+|f)    |16 |eth0    |OUT             |181.1.5.1/32       |0.0.0.0/0           |TCP                     |>1023           |53               |SI/NO   |Permitir|
+|f)    |17 |eth0    |IN              |0.0.0.0/0          |181.1.5.1/32        |TCP                     |53              |>1023            |SI      |Permitir|
+|f)    |18 |eth0    |OUT             |181.1.5.1/32       |0.0.0.0/0           |UDP                     |>1023           |53               |-       |Permitir|
+|f)    |19 |eth0    |IN              |0.0.0.0/0          |181.1.5.1/32        |UDP                     |53              |>1023            |-       |Permitir|
+|i)    |20 |eth0    |IN              |10.1.1.3/32        |181.1.5.1/32        |-                       |-               |-                |-       |Permitir|
+|i)    |21 |eth0    |OUT             |181.1.5.1/32       |10.1.1.3/32         |-                       |-               |-                |-       |Permitir|
+|-     |22 |eth0    |-               |0.0.0.0/0          |0.0.0.0/0           |-                       |-               |-                |-       |Permitir|
+
+## Servidor Privado
+|Inciso|Nº |Interfaz|Sentido de flujo|Direccion de origen|Direccion de destino|Protocolo               |Puerto de origen|Puerto de destino|Flag ACK|Accion  |
+|------|---|--------|----------------|-------------------|--------------------|------------------------|----------------|-----------------|--------|--------|
+|a)    |1  |lo      |I/O             |-                  |-                   |-                       |-               |-                |-       |Permitir|
+|g)    |2  |eth0    |IN              |10.1.1.0/24        |10.1.1.200/32       |TCP                     |>1023           |443              |SI/NO   |Permitir|
+|g)    |3  |eth0    |OUT             |10.1.1.200/32      |10.1.1.0/24         |TCP                     |443             |>1023            |SI      |Permitir|
+|g)    |4  |eth0    |IN              |10.1.1.0/24        |10.1.1.200/32       |TCP                     |>1023           |5432             |SI/NO   |Permitir|
+|g)    |5  |eth0    |OUT             |10.1.1.200/32      |10.1.1.0/24         |TCP                     |5432            |>1023            |SI      |Permitir|
+|h)    |6  |eth0    |IN              |10.1.1.0/24        |10.1.1.200/32       |ICMP (msg = Echo Req.)  |-               |-                |-       |Permitir|
+|h)    |7  |eth0    |OUT             |10.1.1.200/32      |10.1.1.0/24         |ICMP (msg = Echo Reply) |-               |-                |-       |Permitir|
+|h)    |8  |eth0    |OUT             |10.1.1.200/32      |10.1.1.0/24         |ICMP (msg = Echo Req.)  |-               |-                |-       |Permitir|
+|h)    |9  |eth0    |IN              |10.1.1.0/24        |10.1.1.200/32       |ICMP (msg = Echo Reply) |-               |-                |-       |Permitir|
+|i)    |10 |eth0    |IN              |10.1.1.3/32        |181.1.5.1/32        |-                       |-               |-                |-       |Permitir|
+|i)    |11 |eth0    |OUT             |181.1.5.1/32       |10.1.1.3/32         |-                       |-               |-                |-       |Permitir|
+|-     |12 |eth0    |-               |0.0.0.0/0          |0.0.0.0/0           |-                       |-               |-                |-       |Permitir|
