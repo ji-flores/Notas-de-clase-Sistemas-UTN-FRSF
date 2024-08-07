@@ -104,7 +104,7 @@
 |f)    |19 |eth0    |IN              |0.0.0.0/0          |181.1.5.1/32        |UDP                     |53              |>1023            |-       |Permitir|
 |i)    |20 |eth0    |IN              |10.1.1.3/32        |181.1.5.1/32        |-                       |-               |-                |-       |Permitir|
 |i)    |21 |eth0    |OUT             |181.1.5.1/32       |10.1.1.3/32         |-                       |-               |-                |-       |Permitir|
-|-     |22 |eth0    |-               |0.0.0.0/0          |0.0.0.0/0           |-                       |-               |-                |-       |Permitir|
+|-     |22 |eth0    |-               |0.0.0.0/0          |0.0.0.0/0           |-                       |-               |-                |-       |Denegar|
 
 ## Servidor Privado
 |Inciso|Nº |Interfaz|Sentido de flujo|Direccion de origen|Direccion de destino|Protocolo               |Puerto de origen|Puerto de destino|Flag ACK|Accion  |

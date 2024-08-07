@@ -79,6 +79,46 @@ iptables -A INPUT -i ens3 -s 10.1.1.1 -d 10.1.1.2 -p tcp --sport 1024:65535 --dp
 
 El script en su estado anterior aceptaba que mensajes con su IP y con destino en Host-1, y desde el puerto 80, lleguen a cualquier interfaz (lo cual es raro).
 
+# Guia 14.2
+
+## Paso 2
+
+#### 1)
+Se acepta solo el trafico de salida y de forwarding, es así por politica de filtrado.
+
+#### 5)
+Primero el sitio cargó, y luego no. Esto es porque se cambio la politica de la cadena INPUT (de ACCEPT a DROP).
+
+#### 7)
+Se agregaron las sentencias
+
+```shell
+# Script realizado por el usuario
+iptables -A INPUT -i ens3 -s 10.1.1.1 -d 10.1.1.2 -p icmp --icmp-type 8 -j ACCE$
+iptables -A OUTPUT -o ens3 -s 10.1.1.2 -d 10.1.1.1 -p icmp --icmp-type 0 -j ACC$
+
+# Politica por defecto
+iptables -P INPUT DROP
+iptables -P OUTPUT DROP
+iptables -P FORWARD DROP
+```
+
+#### 9)
+
+```shell
+# Script realizado por el usuario
+iptables -A INPUT -i ens3 -s 10.1.1.1 -d 10.1.1.2 -p icmp --icmp-type 8 -j ACCEPT
+iptables -A OUTPUT -o ens3 -s 10.1.1.2 -d 10.1.1.1 -p icmp --icmp-type 0 -j ACCEPT
+iptables -A INPUT -i ens3 -s 10.1.1.0/27 -d 10.1.1.2 -p tcp --sport 1024:65535 -m multiport --dports 80,443 -j ACCEPT
+iptables -A OUTPUT -o ens3 -s 10.1.1.2 -d 10.1.1.0/27 -p tcp --dport 1024:65535 -m multiport --sports 80,43 -m state --state ESTABLISHED -j ACCEPT
+
+# Politica por defecto
+iptables -P INPUT DROP
+iptables -P OUTPUT DROP
+iptables -P FORWARD DROP
+
+```
+
 # Guia 14.3
 
 ## Relevamiento
