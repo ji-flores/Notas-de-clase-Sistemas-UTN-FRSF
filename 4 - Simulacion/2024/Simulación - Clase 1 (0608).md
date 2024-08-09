@@ -2,10 +2,10 @@
 
 **Correos:**
 
-+ rportillo@frsf.utn.edu.ar
-+ mariajuliablas@gmail.com
-+ juanleonardosarli@gmail.com
-+ galvarez@frsf.utn.edu.ar
++ <rportillo@frsf.utn.edu.ar>
++ <mariajuliablas@gmail.com>
++ <juanleonardosarli@gmail.com>
++ <galvarez@frsf.utn.edu.ar>
 
 ### Bibliografía
 
@@ -17,15 +17,17 @@
 ### Condiciones de aprobación
 
 **Regularización:**
+
 + Aprobación de las instancias de evaluación con un 50%
-   + 5 actividades de seguimiento en grupo.
-   + 1 evaluación parcial
+  + 5 actividades de seguimiento en grupo.
+  + 1 evaluación parcial
 + Un recuperatorio integrador.
 
 **Promoción:**
+
 + Aprobación de las instancias de evaluación con un 60% o más.
-   + 3 actividades de seguimiento en grupo.
-   + 4 evaluaciones parciales.
+  + 3 actividades de seguimiento en grupo.
+  + 4 evaluaciones parciales.
 + Se puede recuperar un parcial.
 
 ### Cronograma de evaluaciones
@@ -49,7 +51,7 @@
 
 + Recuperatorio: Semana del 10/12.
 
-# Unidad 1. Parte A.
+# Unidad 1. Parte A
 
 ### ¿Qué es la simulación? ¿Que nos permite?
 
@@ -70,13 +72,13 @@ Es parte de los procesos de grandes empresas, ya que estos involucran sistemas c
 + Estructura:
   + Elementos o componntes.
   + Relaciones o interacciones entr los elementos o componentes.
- 
+
 ### Clasificación de sistemas
 
 **Segun la evolución temporal de las variables:**
 
 + **Sistema discreto:** Las variables cambian solo un un conjunto discreto de puntos en el tiempo.
-  + Las variabls cambian instantaneamnte en dados instantes, y permanecen constantes el resto del tiempo.   
+  + Las variabls cambian instantaneamnte en dados instantes, y permanecen constantes el resto del tiempo.
 + **Sistemas continuos**: Las variables cambian de manera continua a lo largo del tiempo.
   + Los lementos o variables que determinan el comportamiento del sistema puede variar continuamente en el tiempo.
 
@@ -99,8 +101,9 @@ Segun la **evolución en el tiempo**:
 + **Dinamico**: Representa un sistema cuyo comportaminto en el tiempo (puede ser discreto o continuo) es de interes para su estudio, dados determinados objetivos.
 + **Estatico**: Es una representación de un sistema en un momento particular, o una que puede ser usada para represntar un sistema en el que el tiempo simplemente no juega ningún rol.
   + Ejemplo: Simulación de Monte Carlo. Para estimar l rsultado del modelo se toman valores promdio, por lo que hay que estimar las variables $a$, $b$ y $c$ a partir de sus distribuciones de probabilidad y resolviendo la ecuación repetidas veces o iteracions. Se usa mucho en analisis de riesgo, por ej., en inversiones.
- 
+
 Según las salidas de simulación:
+
 + Determinisiticos: Si no contien ningun componente probabilistico, el modelo es dterminisitico. La salida de la simulación es determinada una vez que el conjunto de cantidades y relaciones de entrada en el modelo han sido especificadas. No hay componentes probabilisticos.
 + Estocasticos: Si existe algun componente de entrada (o no necesariamnte la entrada, pero algun componente interno) probabilistico. Producen una salida que es aleatoria en si misma, y debe ser tratada como una estimación de las caracteristicas reales del modelo.
 
@@ -112,17 +115,20 @@ Segun el nivl de abstracción.
 + **Táctico**: Abstracción media, detalles medios, nivel meso.
 + **Operacional**: Baja abstracción, más detalles. Objtos individuales, tamaños exactos, velocidades, distancias, tiempos.
 
-Modlado de sistmas dinamicos y simulación.
+**Modlado de sistmas dinamicos y simulación.**
+
 + Modelado: Diagramas de flujo y de stock.
 + Simulación: Continua deterministica, basada en ecuaciones diferenciales.
 + Abstracción alta.
 
-Modelado de eventos discretos y simulación.
+**Modelado de eventos discretos y simulación.**
+
 + Modelado: Diagramas de flujo.
 + Simulación: Estocastica discreta.
 + Abstracción baja.
 
-Modelado basado en agentes y simulación.
+**Modelado basado en agentes y simulación.**
+
 + Modelado: Ecuaciones y diagramas de estado.
 + Simulación: Estocastica discreta y basada en objetos.
 + Diversos niveles de abstracción dependiendo el modelo.
@@ -130,6 +136,8 @@ Modelado basado en agentes y simulación.
 + Un agente es un individuo con un conjunto de caracteristicas y atributos
 
 Existen también modelos hibridos.
+
+Todos estos metodos corresponden a modelos/sistemas dinamicos. Para modelos estaticos: Simulación de Monte Carlo.
 
 ## Ventajas y desventajas de la Simulación
 
