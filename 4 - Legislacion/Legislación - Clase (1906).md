@@ -2,29 +2,32 @@
 
 (anotado por Fran)
 
-Rama del derecho que regula la relación entre el empleado y el empleafdor cuando el empleador es un particular(No es un organismo del estado)
+Rama del derecho que regula la relación entre el empleado y el empleafdor cuando el empleador es un particular (No es un organismo del estado).
 En esta relación tiene que haber una relación de subordinación:
 -   Técnica:
-El empleador da las órdenes en cuanto a como se debe realizar las tareas
+El empleador da las órdenes en cuanto a como se debe realizar las tareas.
 -   Jurídica
-El empelador tiene la posibilidad de sancionar al empleado
-<!--SI a alguien lo despiden con justa causa, no lo tienen que indenmizar-->
+El empelador tiene la posibilidad de sancionar al empleado.
+<!--Si a alguien lo despiden con justa causa, no lo tienen que indenmizar-->
 -   Económica:
-Porque el empleador remunera la fuerza de trabajo o contraprestación del empleado con un valor económico
+Porque el empleador remunera la fuerza de trabajo o contraprestación del empleado con un valor económico.
 
 ### Relación de dependencia
-Locación de servicios: No es exigible la cuestión tecnica de dependencia, por ejemplo el horario de trabajo
+Locación de servicios: No es exigible la cuestión tecnica de dependencia, por ejemplo el horario de trabajo.
 
-En el derecho laboral, se basa todo en el principio de la preeminencia de la realidad( o a secas, principio de la realidad)
+En el derecho laboral, se basa todo en el principio de la preeminencia de la realidad (o a secas, principio de la realidad)
+
 <!--El trabajador en negro tiene que probar la relación laboral para poder reclamar, y la indemnización es del doble(por multa en caso de que esté en negro)-->
 
 En esta realción tenemos dos sujetos:
 
-+ Empresario o patrón: Siempre privado en el derecho laboral, persona o personas humanas o juríicas
++ Empresario o patrón: Siempre privado en el derecho laboral, persona o personas humanas o jurídicas.
 + Empleado o trabajador: Siempre tiene que ser una persona humana o física. Presta su fuerza de trabajo de manera personal y esto es de hecho muy importante (dado que es ilgal que te reemplazen).
 
 Su fuerza de trabajo puede implicar:
+
 + Brindar servicios, obras y realice actos administrativos.
+
 <!-- Sociedad anonima unipersonal-->
 
 ---
