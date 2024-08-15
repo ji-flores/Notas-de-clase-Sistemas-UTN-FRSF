@@ -1,6 +1,6 @@
 # Seguridad Informatica
 
-Los conceptos basicos no cambian, lo que cambia es la tecnología. 
+Los conceptos basicos no cambian, lo que cambia es la tecnología.
 
 Seguridad Informatica: Consiste en asegurar que los recursos del sistema de información... (completar diapo.) Se aplica sobre el HW/SW. El objetivo ultimo es que la información que se gestiona no se vea comprometida.
 
