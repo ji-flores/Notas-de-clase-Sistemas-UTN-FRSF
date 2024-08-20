@@ -25,6 +25,7 @@ Definir un marco de trabajo para utilizarlo en todos mis proyectos. La calidad s
 + "El cliente sabe exactamente lo que quiere"
 + "Solo puedo saber si funciona bien cuando lo ejecute"
 + "El programador solo escribe codigo". Genera documentación, prueba, genera métricas.
+
 ## Características del software
 
 El desarrollo no es la simple manufactura de partes que después se ensamblan.
@@ -44,6 +45,7 @@ Def.: ... Cumpliendo con todos los plazos que haya que cumplir.
 + Cuantificable, exigir que el proceso sea medible, evaluar si se está siendo óptimo (por ejemplo, en la planificación de tiempo). Se evalúa a nivel proyecto.
 
 Encontrar una forma de trabajar organizada, planificada y poder reutilizarla, usando técnicas de tres componentes fundamentales.
+
 + Un enfoque de calidad.
 + Definicion de **procesos**, no solo de desarrollo de software.
 + **Métodos**. Para elicitar requerimientos, para programar en cierto lenguaje.
