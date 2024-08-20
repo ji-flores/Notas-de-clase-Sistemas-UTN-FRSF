@@ -21,6 +21,7 @@ Surge por un proyecto militar de la década de los 1940 con nombre en código "M
 + Obtener premios en juegos. Garantizar que un sistema que da rewards es justo.
 
 ## Componentes
+
 + Entrada: Necesito conocer la distribución de las entradas.
 + Modelo de simulación.
 + Salidas: Me interesa conocer la distribución para poder estudiarlas.
