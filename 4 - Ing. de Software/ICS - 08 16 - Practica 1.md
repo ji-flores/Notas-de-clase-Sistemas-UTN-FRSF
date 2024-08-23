@@ -1,4 +1,5 @@
 # Practica: Procesos
+
 La metodología de desarrollo de software depende de tres factores:
 + Tecnología.
 + Tipo de organización (o sus procesos): No es lo mismo hacer SW para una org. gubernamental que start-up.
