@@ -62,6 +62,7 @@ Es una propuesta nacida de un paper, con muchas implementaciones (formas de usar
 Nignuna se modifica directamente por cualquiera.
 
 ### Grupo 2
+
 + Propone ramas "feature". feature/*.
 	+ Cuando queramos trabajar en una nueva funcionalidad, algo concreto, eso es un feature.
 	+ Se mergean con develop para incrementar valor.
