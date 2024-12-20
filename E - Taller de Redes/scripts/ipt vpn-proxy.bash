@@ -6,10 +6,10 @@ redAWS="10.0.0.0/16"
 redVPN="192.168.0.0/23"
 redWebPrivado="10.0.1.0/24"
 redBD="10.0.2.0/24"
-proxyServer="10.0.1.93"
+proxyReverso="10.0.1.93"
 centralTelefonica="10.0.1.93"
 myIP="10.0.0.214"
-conexionEstablished="state --state ESTABLISHED,NEW"
+conexionEstablished="state --state ESTABLISHED"
 conexionAny="state --state ESTABLISHED,NEW"
 echoRequest="--icmp-type 8"
 echoReply="--icmp-type 0"
@@ -60,8 +60,8 @@ iptables -A INPUT -i enX0 -s $anywhere -p tcp --sport 443 -m $conexionEstablishe
 # dns
 iptables -A OUTPUT -o enX0 -d $anywhere -p udp --dport 53 -j ACCEPT
 iptables -A INPUT -i enX0 -s $anywhere -p udp --sport 53 -j ACCEPT
-iptables -A OUTPUT -o enX0 -d $anywhere -p tcp --dport 53 -j ACCEPT
-iptables -A INPUT -i enX0 -s $anywhere -p tcp --sport 53 -j ACCEPT
+iptables -A OUTPUT -o enX0 -d $anywhere -p tcp --dport 53 -m $conexionAny -j ACCEPT
+iptables -A INPUT -i enX0 -s $anywhere -p tcp --sport 53 -m $conexionEstablished -j ACCEPT
 # ftp
 iptables -A OUTPUT -o enX0 -d $anywhere -p tcp --dport 20:21 -j ACCEPT
 iptables -A INPUT -i enX0 -s $anywhere -p tcp --sport 20:21 -j ACCEPT
@@ -91,10 +91,10 @@ iptables -A FORWARD -o tr0 -d $redVPN -p icmp $echoRequest -j ACCEPT
 iptables -A FORWARD -i tr0 -s $redVPN -p icmp $echoReply -j ACCEPT
 
 # Habilitar forwarding de http/https (Servidor WEB privado)
-iptables -A FORWARD -i tr0 -s $redVPN -d $proxyServer -p tcp --dport 80 -m $conexionAny -j ACCEPT
-iptables -A FORWARD -o tr0 -d $redVPN -s $proxyServer -p tcp --sport 80 -m $conexionEstablished -j ACCEPT
-iptables -A FORWARD -i tr0 -s $redVPN -d $proxyServer -p tcp --dport 443 -m $conexionAny -j ACCEPT
-iptables -A FORWARD -o tr0 -d $redVPN -s $proxyServer -p tcp --sport 443 -m $conexionEstablished -j ACCEPT
+iptables -A FORWARD -i tr0 -s $redVPN -d $proxyReverso -p tcp --dport 80 -m $conexionAny -j ACCEPT
+iptables -A FORWARD -o tr0 -d $redVPN -s $proxyReverso -p tcp --sport 80 -m $conexionEstablished -j ACCEPT
+iptables -A FORWARD -i tr0 -s $redVPN -d $proxyReverso -p tcp --dport 443 -m $conexionAny -j ACCEPT
+iptables -A FORWARD -o tr0 -d $redVPN -s $proxyReverso -p tcp --sport 443 -m $conexionEstablished -j ACCEPT
 
 # Habilitar forwarding de VoIP (Asterisk)
 iptables -A FORWARD -i tr0 -s $redVPN -d $centralTelefonica -p udp --dport 5060 -j ACCEPT
@@ -110,31 +110,35 @@ iptables -A FORWARD -s $redVPN -d $redVPN -j ACCEPT #????
 
 # Red BASE DE DATOS
 # http
-iptables -A FORWARD -i enX0 -s $redBD -p tcp --dport 80 -j ACCEPT
-iptables -A FORWARD -o enX0 -d $redBD -p tcp --sport 80 -j ACCEPT
+iptables -A FORWARD -i enX0 -s $redBD -d $anywhere -p tcp --dport 80 -m $conexionAny -j ACCEPT
+iptables -A FORWARD -o enX0 -d $redBD -s $anywhere -p tcp --sport 80 -m $conexionEstablished -j ACCEPT
 # https
-iptables -A FORWARD -i enX0 -s $redBD -p tcp --dport 443 -j ACCEPT
-iptables -A FORWARD -o enX0 -d $redBD -p tcp --sport 443 -j ACCEPT
-#dns
-iptables -A FORWARD -i enX0 -s $redBD -p tcp --dport 53 -j ACCEPT
-iptables -A FORWARD -o enX0 -d $redBD -p tcp --sport 53 -j ACCEPT
-#ftp
-iptables -A FORWARD -i enX0 -s $redBD -p tcp --dport 20:21 -j ACCEPT
-iptables -A FORWARD -o enX0 -d $redBD -p tcp --sport 20:21 -j ACCEPT
+iptables -A FORWARD -i enX0 -s $redBD -d $anywhere -p tcp --dport 443 -m $conexionAny -j ACCEPT
+iptables -A FORWARD -o enX0 -d $redBD -s $anywhere -p tcp --sport 443 -m $conexionEstablished -j ACCEPT
+# dns
+iptables -A FORWARD -i enX0 -s $redBD -d $anywhere -p udp --dport 53 -j ACCEPT
+iptables -A FORWARD -o enX0 -d $redBD -s $anywhere -p udp --sport 53 -j ACCEPT
+iptables -A FORWARD -i enX0 -s $redBD -d $anywhere -p tcp --dport 53 -m $conexionAny -j ACCEPT
+iptables -A FORWARD -o enX0 -d $redBD -s $anywhere -p tcp --sport 53 -m $conexionEstablished -j ACCEPT
+# ftp
+iptables -A FORWARD -i enX0 -s $redBD -d $anywhere -p tcp --dport 20:21 -j ACCEPT
+iptables -A FORWARD -o enX0 -d $redBD -s $anywhere -p tcp --sport 20:21 -j ACCEPT
 
 # Red WEB SERVER PRIVADO
 # http
-iptables -A FORWARD -i enX0 -s $redWebPrivado -p tcp --dport 80 -j ACCEPT
-iptables -A FORWARD -o enX0 -d $redWebPrivado -p tcp --sport 80 -j ACCEPT
+iptables -A FORWARD -i enX0 -s $redWebPrivado -d $anywhere -p tcp --dport 80 -m $conexionAny -j ACCEPT
+iptables -A FORWARD -o enX0 -d $redWebPrivado -s $anywhere -p tcp --sport 80 -m $conexionEstablished -j ACCEPT
 # https
-iptables -A FORWARD -i enX0 -s $redWebPrivado -p tcp --dport 443 -j ACCEPT
-iptables -A FORWARD -o enX0 -d $redWebPrivado -p tcp --sport 443 -j ACCEPT
-#dns
-iptables -A FORWARD -i enX0 -s $redWebPrivado -p tcp --dport 53 -j ACCEPT
-iptables -A FORWARD -o enX0 -d $redWebPrivado -p tcp --sport 53 -j ACCEPT
-#ftp
-iptables -A FORWARD -i enX0 -s $redWebPrivado -p tcp --dport 20:21 -j ACCEPT
-iptables -A FORWARD -o enX0 -d $redWebPrivado -p tcp --sport 20:21 -j ACCEPT
+iptables -A FORWARD -i enX0 -s $redWebPrivado -d $anywhere -p tcp --dport 443 -m $conexionAny -j ACCEPT
+iptables -A FORWARD -o enX0 -d $redWebPrivado -s $anywhere -p tcp --sport 443 -m $conexionEstablished -j ACCEPT
+# dns
+iptables -A FORWARD -i enX0 -s $redWebPrivado -d $anywhere -p udp --dport 53 -j ACCEPT
+iptables -A FORWARD -o enX0 -d $redWebPrivado -s $anywhere -p udp --sport 53 -j ACCEPT
+iptables -A FORWARD -i enX0 -s $redWebPrivado -d $anywhere -p tcp --dport 53 -m $conexionAny -j ACCEPT
+iptables -A FORWARD -o enX0 -d $redWebPrivado -s $anywhere -p tcp --sport 53 -m $conexionEstablished -j ACCEPT
+# ftp
+iptables -A FORWARD -i enX0 -s $redWebPrivado -d $anywhere -p tcp --dport 20:21 -j ACCEPT
+iptables -A FORWARD -o enX0 -d $redWebPrivado -s $anywhere -p tcp --sport 20:21 -j ACCEPT
 
 # NAT
 iptables -t nat -A POSTROUTING -o enX0 -s $redBD -j MASQUERADE

@@ -56,8 +56,8 @@ iptables -A INPUT -i eth0 -s $anywhere -p tcp --sport 443 -m $conexionEstablishe
 # dns
 iptables -A OUTPUT -o eth0 -d $anywhere -p udp --dport 53 -j ACCEPT
 iptables -A INPUT -i eth0 -s $anywhere -p udp --sport 53 -j ACCEPT
-iptables -A OUTPUT -o eth0 -d $anywhere -p tcp --dport 53 -j ACCEPT
-iptables -A INPUT -i eth0 -s $anywhere -p tcp --sport 53 -j ACCEPT
+iptables -A OUTPUT -o eth0 -d $anywhere -p tcp --dport 53 -m $conexionAny -j ACCEPT
+iptables -A INPUT -i eth0 -s $anywhere -p tcp --sport 53 -m $conexionEstablished -j ACCEPT
 # ftp
 iptables -A OUTPUT -o eth0 -d $anywhere -p tcp --dport 20:21 -j ACCEPT
 iptables -A INPUT -i eth0 -s $anywhere -p tcp --sport 20:21 -j ACCEPT
